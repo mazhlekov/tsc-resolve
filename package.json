@@ -1,0 +1,27 @@
+{
+  "name": "tsc-resolve",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Dimitar Mazhlekov",
+  "license": "MIT",
+  "main": "build/index.js",
+  "typings": "./build/index.d.ts",
+  "bin": {
+    "tsc-resolve": "./build/cli.js"
+  },
+  "scripts": {
+    "build": "shx rm -rf build && tsc"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "graceful-fs": "^4.1.11",
+    "tsconfig": "^6.0.0",
+    "tslib": "^1.7.1",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/bluebird-global": "^3.5.2",
+    "@types/node": "^7.0.22",
+    "typescript": "^2.3.3"
+  }
+}
