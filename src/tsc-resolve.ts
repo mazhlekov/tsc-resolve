@@ -23,12 +23,22 @@ function getFileReplaceTask(outDir: string, filePath: string, modules: Typescrip
 
         const regExp2 = new RegExp(escapeRegExp(`require("${module.name}/`), "g");
         let replaceText2 = `require("` + diff;
+
+        const regExp3 = new RegExp(escapeRegExp(`require('${module.name}')`), "g");
+        const replaceText3 = `require('` + diff + `')`;
+
+        const regExp4 = new RegExp(escapeRegExp(`require('${module.name}/`), "g");
+        let replaceText4 = `require('` + diff;
+
         if (diff !== "./") {
             replaceText2 += "/";
+            replaceText4 += "/";
         }
 
         replaces.push({ regExp: regExp1, text: replaceText1 });
         replaces.push({ regExp: regExp2, text: replaceText2 });
+        replaces.push({ regExp: regExp3, text: replaceText3 });
+        replaces.push({ regExp: regExp4, text: replaceText4 });
     }
 
     return replaceInFile(filePath, replaces);
@@ -48,7 +58,6 @@ export async function resolve(tsConfigFilePath: string) {
     if (!jsFiles.length) {
         throw new Error("No .js files found");
     }
-
     const modules = Object.keys(config.compilerOptions.paths);
     await Promise.all(
         jsFiles.map((filePath: string) => {

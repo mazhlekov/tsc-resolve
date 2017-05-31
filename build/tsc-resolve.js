@@ -18,11 +18,18 @@ function getFileReplaceTask(outDir, filePath, modules) {
         var replaceText1 = "require(\"" + diff + "\")";
         var regExp2 = new RegExp(utils_1.escapeRegExp("require(\"" + module_1.name + "/"), "g");
         var replaceText2 = "require(\"" + diff;
+        var regExp3 = new RegExp(utils_1.escapeRegExp("require('" + module_1.name + "')"), "g");
+        var replaceText3 = "require('" + diff + "')";
+        var regExp4 = new RegExp(utils_1.escapeRegExp("require('" + module_1.name + "/"), "g");
+        var replaceText4 = "require('" + diff;
         if (diff !== "./") {
             replaceText2 += "/";
+            replaceText4 += "/";
         }
         replaces.push({ regExp: regExp1, text: replaceText1 });
         replaces.push({ regExp: regExp2, text: replaceText2 });
+        replaces.push({ regExp: regExp3, text: replaceText3 });
+        replaces.push({ regExp: regExp4, text: replaceText4 });
     }
     return utils_1.replaceInFile(filePath, replaces);
 }
