@@ -31,7 +31,11 @@ function resolve(tsConfigFilePath) {
         var config, outDir, jsFiles, modules;
         return tslib_1.__generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, tsconfig.readFile(tsConfigFilePath)];
+                case 0:
+                    if (!utils_1.endsWith(tsConfigFilePath, ".json")) {
+                        tsConfigFilePath = path.join(tsConfigFilePath, utils_1.CONFIG_FILENAME);
+                    }
+                    return [4 /*yield*/, tsconfig.readFile(tsConfigFilePath)];
                 case 1:
                     config = _a.sent();
                     utils_1.validateTsConfig(config);

@@ -45,10 +45,6 @@ function replaceInFile(filePath, replaces) {
     });
 }
 exports.replaceInFile = replaceInFile;
-function getCwdConfig() {
-    return path.resolve(process.cwd(), exports.CONFIG_FILENAME);
-}
-exports.getCwdConfig = getCwdConfig;
 function rtrim(str, char) {
     if (str.slice(str.length - char.length) === char) {
         return rtrim(str.slice(0, 0 - char.length), char);
@@ -94,3 +90,7 @@ function validateTsConfig(config) {
     }
 }
 exports.validateTsConfig = validateTsConfig;
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+exports.endsWith = endsWith;

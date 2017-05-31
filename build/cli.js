@@ -7,7 +7,6 @@ var path = require("path");
 var Bluebird = require("bluebird");
 global.Promise = Bluebird; // only for CLI usage
 var yargs = require("yargs");
-var utils_1 = require("./utils");
 var tsc_resolve_1 = require("./tsc-resolve");
 var USAGE = "\nUSAGE:\n    tsc-resolve\n    tsc-resolve -p tsconfig.prod.json\n    tsc-resolve -p ./conf/tsconfig.dev.json\n    tsc-resolve -p ./conf/\n    tsc-resolve -p ../\n";
 var argv = yargs
@@ -23,15 +22,7 @@ var argv = yargs
     .help()
     .epilogue("GitHub repository at https://github.com/mazhlekov/tsc-resolve")
     .argv;
-var tsConfigPath = utils_1.getCwdConfig();
-if (argv.p) {
-    if (argv.p.endsWith(".json")) {
-        tsConfigPath = path.resolve(process.cwd(), argv.p);
-    }
-    else {
-        tsConfigPath = path.resolve(process.cwd(), argv.p, utils_1.CONFIG_FILENAME);
-    }
-}
+var tsConfigPath = path.resolve(process.cwd(), argv.p);
 (function () { return tslib_1.__awaiter(_this, void 0, void 0, function () {
     var err_1;
     return tslib_1.__generator(this, function (_a) {
