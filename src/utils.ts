@@ -40,10 +40,6 @@ export async function replaceInFile(filePath: string, replaces: FileReplace[]) {
     await fs.writeFileAsync(filePath, newSource, "utf-8");
 }
 
-export function getCwdConfig(): string {
-    return path.resolve(process.cwd(), CONFIG_FILENAME)
-}
-
 export function rtrim(str: string, char: string): string {
     if (str.slice(str.length - char.length) === char) {
         return rtrim(str.slice(0, 0 - char.length), char);
@@ -93,4 +89,8 @@ export function validateTsConfig(config: any) {
             throw new Error(`You cannot have more than one path per module. "${module}" is invalid => ${config.compilerOptions.paths[module]}`);
         }
     }
+}
+
+export function endsWith(str: string, suffix: string) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }

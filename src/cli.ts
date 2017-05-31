@@ -4,7 +4,6 @@ import * as Bluebird from "bluebird";
 global.Promise = Bluebird; // only for CLI usage
 const yargs = require("yargs");
 
-import { getCwdConfig, CONFIG_FILENAME } from "./utils";
 import { resolve } from "./tsc-resolve";
 
 const USAGE = `
@@ -30,14 +29,8 @@ let argv = yargs
     .epilogue("GitHub repository at https://github.com/mazhlekov/tsc-resolve")
     .argv
 
-let tsConfigPath: string = getCwdConfig();
-if (argv.p) {
-    if (argv.p.endsWith(".json")) {
-        tsConfigPath = path.resolve(process.cwd(), argv.p);
-    } else {
-        tsConfigPath = path.resolve(process.cwd(), argv.p, CONFIG_FILENAME);
-    }
-}
+
+let tsConfigPath: string = path.resolve(process.cwd(), argv.p);
 
 (async () => {
     try {

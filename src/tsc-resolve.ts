@@ -2,8 +2,8 @@ import * as path from "path";
 const tsconfig = require("tsconfig");
 
 import {
-    rtrim, validateTsConfig, escapeRegExp, convertToUnixPath,
-    TypescriptModule, FileReplace, replaceInFile, getJSFiles
+    rtrim, validateTsConfig, escapeRegExp, convertToUnixPath, CONFIG_FILENAME,
+    TypescriptModule, FileReplace, replaceInFile, getJSFiles, endsWith
 } from "./utils";
 
 function getFileReplaceTask(outDir: string, filePath: string, modules: TypescriptModule[]) {
@@ -35,6 +35,10 @@ function getFileReplaceTask(outDir: string, filePath: string, modules: Typescrip
 }
 
 export async function resolve(tsConfigFilePath: string) {
+    if (!endsWith(tsConfigFilePath, ".json")) {
+        tsConfigFilePath = path.join(tsConfigFilePath, CONFIG_FILENAME);
+    }
+
     const config: any = await tsconfig.readFile(tsConfigFilePath);
     validateTsConfig(config);
 
