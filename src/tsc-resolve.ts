@@ -41,13 +41,11 @@ export async function resolve(tsConfigFilePath: string) {
     const outDir = path.resolve(path.dirname(tsConfigFilePath), config.compilerOptions.outDir);
 
     const jsFiles: string[] = getJSFiles(outDir);
-
     if (!jsFiles.length) {
         throw new Error("No .js files found");
     }
 
     const modules = Object.keys(config.compilerOptions.paths);
-
     await Promise.all(
         jsFiles.map((filePath: string) => {
             let tsModules: TypescriptModule[] = [];

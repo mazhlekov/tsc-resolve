@@ -21,7 +21,7 @@ var argv = yargs
     normalize: true,
 })
     .help()
-    .epilogue("GitHub repository at http://github.com/mazhlekov/tsc-resolve")
+    .epilogue("GitHub repository at https://github.com/mazhlekov/tsc-resolve")
     .argv;
 var tsConfigPath = utils_1.getCwdConfig();
 if (argv.p) {

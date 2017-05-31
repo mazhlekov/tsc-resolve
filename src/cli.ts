@@ -31,7 +31,6 @@ let argv = yargs
     .argv
 
 let tsConfigPath: string = getCwdConfig();
-
 if (argv.p) {
     if (argv.p.endsWith(".json")) {
         tsConfigPath = path.resolve(process.cwd(), argv.p);
