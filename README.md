@@ -7,29 +7,37 @@ A tool for resolving typescript modules defined in tsconfig.json.
 
 
 ## Installation
-    npm i tsc-resolve --save-dev
-    OR
-    npm i -g tsc-resolve
+```bash
+# Local package
+$ npm i tsc-resolve --save-dev
+
+# Global CLI
+$ npm i -g tsc-resolve 
+```
 
 ## Usage
 ### NPM task
-    npm i tsc-resolve --save-dev
+```bash
+$ npm i tsc-resolve --save-dev
 
-    "scripts": {
-        "compile": "tsc",
-        "build": "compile && tsc-resolve"
-    }
+"scripts": {
+    "compile": "tsc",
+    "build": "compile && tsc-resolve"
+}
 
-    npm run build
+$ npm run build
+```
 
 ### CLI
-    npm i -g tsc-resolve
-    
-    tsc-resolve
-    tsc-resolve -p tsconfig.prod.json
-    tsc-resolve -p ./conf/tsconfig.dev.json
-    tsc-resolve -p ./conf/
-    tsc-resolve -p ../
+```bash
+$ npm i -g tsc-resolve
+
+$ tsc-resolve
+$ tsc-resolve -p tsconfig.prod.json
+$ tsc-resolve -p ./conf/tsconfig.dev.json
+$ tsc-resolve -p ./conf/
+$ tsc-resolve -p ../
+```
     
 ### TypeScript
 ```typescript
