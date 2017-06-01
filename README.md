@@ -1,4 +1,6 @@
 # tsc-resolve
+[![Build Status](https://travis-ci.org/mazhlekov/tsc-resolve.svg?branch=master)](https://travis-ci.org/mazhlekov/tsc-resolve)
+
 A tool for resolving typescript modules defined in tsconfig.json.
 
 ## Why tsc-resolve?
