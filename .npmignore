@@ -1,6 +1,7 @@
 src/
-tsconfig.json
 yarn.lock
+tsconfig.json
+tslint.json
 .npmignore
 .editorconfig
 .gitattributes
