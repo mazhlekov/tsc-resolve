@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import * as path from "path";
 import * as Bluebird from "bluebird";
+import * as path from "path";
 global.Promise = Bluebird; // only for CLI usage
 const yargs = require("yargs");
 
@@ -15,7 +15,7 @@ USAGE:
     tsc-resolve -p ../
 `;
 
-let argv = yargs
+const argv = yargs
     .usage(USAGE)
     .option("p", {
         alias: "project",
@@ -27,16 +27,14 @@ let argv = yargs
     })
     .help()
     .epilogue("GitHub repository at https://github.com/mazhlekov/tsc-resolve")
-    .argv
+    .argv;
 
-
-let tsConfigPath: string = path.resolve(process.cwd(), argv.p);
+const tsConfigPath: string = path.resolve(process.cwd(), argv.p);
 
 (async () => {
     try {
         await resolve(tsConfigPath);
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err);
         process.exit(1);
     }

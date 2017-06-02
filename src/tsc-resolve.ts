@@ -2,14 +2,14 @@ import * as path from "path";
 const tsconfig = require("tsconfig");
 
 import {
-    rtrim, validateTsConfig, escapeRegExp, convertToUnixPath, CONFIG_FILENAME,
-    TypescriptModule, FileReplace, replaceInFile, getJSFiles, endsWith
+    CONFIG_FILENAME, convertToUnixPath, endsWith, escapeRegExp, getJSFiles,
+    IFileReplace, ITypescriptModule, replaceInFile, rtrim, validateTsConfig
 } from "./utils";
 
-function getFileReplaceTask(outDir: string, filePath: string, modules: TypescriptModule[]) {
-    let replaces: FileReplace[] = [];
+function getFileReplaceTask(outDir: string, filePath: string, modules: ITypescriptModule[]) {
+    const replaces: IFileReplace[] = [];
 
-    for (let module of modules) {
+    for (const module of modules) {
         const moduleDir = path.resolve(outDir, module.path);
         let diff = path.relative(path.resolve(moduleDir, path.dirname(filePath)), moduleDir);
         diff = convertToUnixPath(diff);
@@ -61,7 +61,7 @@ export async function resolve(tsConfigFilePath: string) {
     const modules = Object.keys(config.compilerOptions.paths);
     await Promise.all(
         jsFiles.map((filePath: string) => {
-            let tsModules: TypescriptModule[] = [];
+            const tsModules: ITypescriptModule[] = [];
             for (const moduleName of modules) {
                 const modulePath = rtrim(config.compilerOptions.paths[moduleName][0], "*"); // Remove trailing *s
                 tsModules.push({ name: moduleName, path: modulePath });

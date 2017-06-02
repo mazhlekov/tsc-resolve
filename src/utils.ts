@@ -6,24 +6,24 @@ const fs: any = Bluebird.promisifyAll(gracefulFs.gracefulify(require("fs")));
 
 export const CONFIG_FILENAME = "tsconfig.json";
 
-export interface TypescriptModule {
+export interface ITypescriptModule {
     readonly name: string;
     readonly path: string;
 }
 
-export interface FileReplace {
+export interface IFileReplace {
     readonly regExp: RegExp;
     readonly text: string;
 }
 
 export function getJSFiles(dir: string, files: string[] = []) {
-    for (let file of fs.readdirSync(dir)) {
-        let fileName: string = path.join(dir, file);
+    for (const file of fs.readdirSync(dir)) {
+        const fileName: string = path.join(dir, file);
 
         if (fs.statSync(fileName).isDirectory()) {
             getJSFiles(fileName, files);
         } else {
-            let fileExt = fileName.split(".").pop();
+            const fileExt = fileName.split(".").pop();
             if (fileExt === "js") {
                 files.push(fileName);
             }
@@ -32,9 +32,9 @@ export function getJSFiles(dir: string, files: string[] = []) {
     return files;
 }
 
-export async function replaceInFile(filePath: string, replaces: FileReplace[]) {
+export async function replaceInFile(filePath: string, replaces: IFileReplace[]) {
     let newSource = await fs.readFileAsync(filePath, "utf-8");
-    for (let replace of replaces) {
+    for (const replace of replaces) {
         newSource = newSource.replace(replace.regExp, replace.text);
     }
     await fs.writeFileAsync(filePath, newSource, "utf-8");
@@ -57,8 +57,8 @@ export function escapeRegExp(expr: string) {
 }
 
 export function convertToUnixPath(path: string) {
-    let isExtendedLengthPath = /^\\\\\?\\/.test(path);
-    let hasNonAscii = /[^\x00-\x80]+/.test(path);
+    const isExtendedLengthPath = /^\\\\\?\\/.test(path);
+    const hasNonAscii = /[^\x00-\x80]+/.test(path);
 
     if (isExtendedLengthPath || hasNonAscii) {
         return path;
@@ -84,9 +84,10 @@ export function validateTsConfig(config: any) {
         throw new Error("Missing paths");
     }
 
-    for (let module in config.compilerOptions.paths) {
+    for (const module in config.compilerOptions.paths) {
         if (config.compilerOptions.paths[module].length > 1) {
-            throw new Error(`You cannot have more than one path per module. "${module}" is invalid => ${config.compilerOptions.paths[module]}`);
+            throw new Error(`You cannot have more than one path per module. "${module}" is invalid =>
+            ${config.compilerOptions.paths[module]}`);
         }
     }
 }
