@@ -10,7 +10,7 @@
         "tsc-resolve": "./build/cli.js"
     },
     "scripts": {
-        "build": "shx rm -rf build && tsc"
+        "build": "tslint -p tsconfig.json && shx rm -rf build && tsc"
     },
     "dependencies": {
         "bluebird": "3.5.0",
@@ -22,7 +22,8 @@
     "devDependencies": {
         "@types/bluebird-global": "3.5.2",
         "@types/node": "7.0.22",
-        "typescript": "2.3.4",
-        "shx": "^0.2.2"
+        "shx": "^0.2.2",
+        "tslint": "^5.4.2",
+        "typescript": "2.3.4"
     }
 }
