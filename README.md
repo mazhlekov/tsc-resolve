@@ -61,7 +61,6 @@ $ npm i tsc-resolve --save-dev
 
 $ npm run build
 ```
-
 ### CLI
 ```bash
 $ npm i -g tsc-resolve
