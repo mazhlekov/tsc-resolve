@@ -3,7 +3,7 @@
 </h1>
 
 <p align=center>
-  A tool for resolving typescript modules defined in tsconfig.json.
+  A tool for resolving typescript modules defined in tsconfig.json
 </p>
 
 <p align=center>
