@@ -1,10 +1,44 @@
-# tsc-resolve
-[![Build Status](https://travis-ci.org/mazhlekov/tsc-resolve.svg?branch=master)](https://travis-ci.org/mazhlekov/tsc-resolve)
+<h1 align=center>
+  tsc-resolve
+</h1>
 
-A tool for resolving typescript modules defined in tsconfig.json.
+<p align=center>
+  A tool for resolving typescript modules defined in tsconfig.json.
+</p>
 
-## Why tsc-resolve?
-
+<p align=center>
+  <a href="./LICENSE">
+    <img
+      alt="license:mit"
+      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
+    />
+  </a>
+  <a href="">
+    <img
+      alt="node:?"
+      src="https://img.shields.io/badge/node-%3E=4.0-blue.svg?style=flat-square"
+    />
+  </a>
+  <br/>
+  <a href="https://travis-ci.org/mazhlekov/tsc-resolve">
+    <img
+      alt="build:?"
+      src="https://img.shields.io/travis/mazhlekov/tsc-resolve/master.svg?style=flat-square"
+    />
+  </a>
+  <a href="https://tsc-resolve.slack.com/">
+    <img
+      alt="Join the Slack chat"
+      src="https://img.shields.io/badge/slack-join%20chat-E2206F.svg?style=flat-square"
+    />
+  </a>
+  <a href="https://gitter.im/tsc-resolve">
+    <img
+      alt="Join the Gitter chat"
+      src="https://img.shields.io/badge/gitter-join%20chat-D0104D.svg?style=flat-square"
+    />
+  </a>
+</p>
 
 ## Installation
 ```bash
