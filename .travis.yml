@@ -7,6 +7,7 @@ node_js:
 script: "npm run-script build"
 
 notifications:
+  slack: tsc-resolve:xRaN95PIttjatvjRjkfk4t8U
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/f1247bc326f8d999a0ef
