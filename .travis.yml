@@ -5,3 +5,11 @@ node_js:
   - "7"
   - "8"
 script: "npm run-script build"
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/f1247bc326f8d999a0ef
+    on_success: always  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: never     # options: [always|never|change] default: always
