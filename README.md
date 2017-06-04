@@ -42,7 +42,7 @@
 
 ## Why tsc-resolve?
 <a href="https://asciinema.org/a/123305" target="_blank">
-    <img src="./img/tsc-resolve.gif" />
+    <img src="https://github.com/mazhlekov/tsc-resolve/raw/master/img/tsc-resolve.gif" />
 </a>
 
 ## Installation
