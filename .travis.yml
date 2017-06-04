@@ -5,8 +5,8 @@ node_js:
     - "7"
     - "8"
 script:
+    - npm run-script bithound
     - npm run-script build
-    - npm run-script bithound-check
 
 notifications:
   slack: tsc-resolve:xRaN95PIttjatvjRjkfk4t8U

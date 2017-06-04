@@ -30,7 +30,6 @@
     "dependencies": {
         "bluebird": "3.5.0",
         "graceful-fs": "4.1.11",
-        "lodash": "^4.17.4",
         "tsconfig": "6.0.0",
         "tslib": "1.7.1",
         "yargs": "8.0.1"
@@ -45,7 +44,7 @@
     },
     "scripts": {
         "build": "tslint -p tsconfig.json && shx rm -rf build && tsc",
-        "bithound-check": "bithound check git@github.com:mazhlekov/tsc-resolve.git",
+        "bithound": "bithound check git@github.com:mazhlekov/tsc-resolve.git",
         "prepublishOnly": "npm install && npm run build"
     }
 }
