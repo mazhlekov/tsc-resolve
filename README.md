@@ -1,16 +1,11 @@
-<h1 align=center>
-  tsc-resolve
-</h1>
+# tsc-resolve 
+## a tool for resolving typescript modules defined in tsconfig.json 
 
-<p align=center>
-  A tool for resolving typescript modules defined in tsconfig.json
-</p>
-
-<p align=center>
-  <a href="./LICENSE">
+<p>
+  <a href="https://travis-ci.org/mazhlekov/tsc-resolve">
     <img
-      alt="license:mit"
-      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
+      alt="build:?"
+      src="https://img.shields.io/travis/mazhlekov/tsc-resolve/master.svg?style=flat-square"
     />
   </a>
   <a href="">
@@ -20,12 +15,6 @@
     />
   </a>
   <br/>
-  <a href="https://travis-ci.org/mazhlekov/tsc-resolve">
-    <img
-      alt="build:?"
-      src="https://img.shields.io/travis/mazhlekov/tsc-resolve/master.svg?style=flat-square"
-    />
-  </a>
   <a href="https://tsc-resolve.slack.com/">
     <img
       alt="Join the Slack chat"
@@ -36,6 +25,13 @@
     <img
       alt="Join the Gitter chat"
       src="https://img.shields.io/badge/gitter-join%20chat-D0104D.svg?style=flat-square"
+    />
+  </a>
+  <br/>
+  <a href="./LICENSE">
+    <img
+      alt="license:mit"
+      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
     />
   </a>
 </p>
