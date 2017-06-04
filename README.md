@@ -8,9 +8,9 @@
       src="https://img.shields.io/travis/mazhlekov/tsc-resolve/master.svg?style=flat-square"
     />
   </a>
-  <a href="">
+  <a href="https://www.npmjs.com/package/tsc-resolve">
     <img
-      alt="node:?"
+      alt="NPM package version"
       src="https://img.shields.io/badge/node-%3E=4.2.0-blue.svg?style=flat-square"
     />
   </a>
