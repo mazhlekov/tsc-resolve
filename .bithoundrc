@@ -1,5 +1,7 @@
-"dependencies": {
-    "unused-ignores": [
-        "tslib"
-    ]
+{
+    "dependencies": {
+        "unused-ignores": [
+            "tslib"
+        ]
+    }
 }
