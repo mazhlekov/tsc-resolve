@@ -1,16 +1,31 @@
 {
     "name": "tsc-resolve",
     "version": "1.0.0",
-    "description": "",
-    "author": "Dimitar Mazhlekov",
+    "description": "A tool for resolving typescript modules defined in tsconfig.json",
+    "homepage": "https://github.com/mazhlekov/tsc-resolve",
+    "author": "Dimitar Mazhlekov <d.mazhlekov@gmail.com>",
     "license": "MIT",
+    "keywords": [
+        "ts-resolve",
+        "typescript",
+        "tsconfig",
+        "nodejs",
+        "module"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mazhlekov/tsc-resolve"
+    },
+    "bugs": {
+        "url": "https://github.com/mazhlekov/tsc-resolve/issues"
+    },
     "main": "build/index.js",
     "typings": "./build/index.d.ts",
     "bin": {
         "tsc-resolve": "./build/cli.js"
     },
-    "scripts": {
-        "build": "tslint -p tsconfig.json && shx rm -rf build && tsc"
+    "engines": {
+        "node": ">=4.2.0"
     },
     "dependencies": {
         "bluebird": "3.5.0",
@@ -22,8 +37,12 @@
     "devDependencies": {
         "@types/bluebird-global": "3.5.2",
         "@types/node": "7.0.22",
-        "shx": "^0.2.2",
-        "tslint": "^5.4.2",
+        "shx": "0.2.2",
+        "tslint": "5.4.2",
         "typescript": "2.3.4"
+    },
+    "scripts": {
+        "build": "tslint -p tsconfig.json && shx rm -rf build && tsc",
+        "prepublishOnly": "build"
     }
 }

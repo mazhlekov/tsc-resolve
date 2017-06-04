@@ -16,7 +16,7 @@
   <a href="">
     <img
       alt="node:?"
-      src="https://img.shields.io/badge/node-%3E=4.0-blue.svg?style=flat-square"
+      src="https://img.shields.io/badge/node-%3E=4.2.0-blue.svg?style=flat-square"
     />
   </a>
   <br/>
