@@ -1,5 +1,5 @@
 # tsc-resolve 
-## a tool for resolving typescript modules defined in tsconfig.json 
+## A tool for resolving typescript modules defined in tsconfig.json 
 
 <p>
   <a href="https://travis-ci.org/mazhlekov/tsc-resolve">
