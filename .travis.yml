@@ -1,10 +1,12 @@
 language: node_js
 node_js:
-  - "4"
-  - "6"
-  - "7"
-  - "8"
-script: "npm run-script build"
+    - "4"
+    - "6"
+    - "7"
+    - "8"
+script:
+    - npm run-script build
+    - npm run-script bithound-check
 
 notifications:
   slack: tsc-resolve:xRaN95PIttjatvjRjkfk4t8U
