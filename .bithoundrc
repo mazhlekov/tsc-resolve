@@ -1,5 +1,5 @@
 "dependencies": {
-    "mute": [
-      "tslib"
+    "unused-ignores": [
+        "tslib"
     ]
-  }
+}
