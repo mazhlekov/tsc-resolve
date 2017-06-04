@@ -36,7 +36,7 @@
     },
     "devDependencies": {
         "@types/bluebird-global": "3.5.2",
-        "@types/node": "7.0.22",
+        "@types/node": "7.0.27",
         "shx": "0.2.2",
         "tslint": "5.4.2",
         "typescript": "2.3.4"
