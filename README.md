@@ -14,6 +14,31 @@
       src="https://img.shields.io/badge/node-%3E=4.2.0-blue.svg?style=flat-square"
     />
   </a>
+  <a href="https://snyk.io/test/github/mazhlekov/tsc-resolve">
+    <img src="https://snyk.io/test/github/mazhlekov/tsc-resolve/badge.svg?style=flat-square" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/mazhlekov/tsc-resolve" style="max-width:100%;">
+  </a>
+  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve/master/dependencies/npm">
+    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/dependencies.svg" alt="bitHound Dependencies">
+  </a>
+  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve/master/dependencies/npm">
+    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/devDependencies.svg" alt="bitHound Dev Dependencies">
+  </a>
+  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve">
+    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/code.svg" alt="bitHound Code">
+  </a>
+  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve">
+    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/score.svg" alt="bitHound Overall Score">
+  </a>
+  <br/>
+  <a href="https://github.com/mazhlekov/tsc-resolve/blob/master/LICENSE">
+    <img
+      alt="license:mit"
+      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
+    />
+  </a>
+  <a href="https://npmjs.com/package/tsc-resolve">
+      <img src="https://img.shields.io/npm/dm/tsc-resolve.svg?style=flat-square">
+  </a>
   <br/>
   <a href="https://tsc-resolve.slack.com/">
     <img
@@ -25,13 +50,6 @@
     <img
       alt="Join the Gitter chat"
       src="https://img.shields.io/badge/gitter-join%20chat-D0104D.svg?style=flat-square"
-    />
-  </a>
-  <br/>
-  <a href="https://github.com/mazhlekov/tsc-resolve/blob/master/LICENSE">
-    <img
-      alt="license:mit"
-      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
     />
   </a>
 </p>
