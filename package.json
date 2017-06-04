@@ -43,6 +43,6 @@
     },
     "scripts": {
         "build": "tslint -p tsconfig.json && shx rm -rf build && tsc",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm install && npm run build"
     }
 }
