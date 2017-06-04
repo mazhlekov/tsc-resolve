@@ -28,7 +28,7 @@
     />
   </a>
   <br/>
-  <a href="./LICENSE">
+  <a href="https://github.com/mazhlekov/tsc-resolve/blob/master/LICENSE">
     <img
       alt="license:mit"
       src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
