@@ -6,7 +6,7 @@
     "author": "Dimitar Mazhlekov <d.mazhlekov@gmail.com>",
     "license": "MIT",
     "keywords": [
-        "ts-resolve",
+        "tsc-resolve",
         "typescript",
         "tsconfig",
         "nodejs",
