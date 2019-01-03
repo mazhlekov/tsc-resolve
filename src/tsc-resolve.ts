@@ -11,6 +11,8 @@ function getFileReplaceTask(outDir: string, filePath: string, modules: ITypescri
 
     for (const module of modules) {
         const moduleDir = path.resolve(outDir, module.path);
+        const moduleName = module.name.replace(/\/\*$/, "");
+
         let diff = path.relative(path.resolve(moduleDir, path.dirname(filePath)), moduleDir);
         diff = convertToUnixPath(diff);
 
@@ -18,16 +20,16 @@ function getFileReplaceTask(outDir: string, filePath: string, modules: ITypescri
             diff = "./" + diff;
         }
 
-        const regExp1 = new RegExp(escapeRegExp(`require("${module.name}")`), "g");
+        const regExp1 = new RegExp(escapeRegExp(`require("${moduleName}")`), "g");
         const replaceText1 = `require("` + diff + `")`;
 
-        const regExp2 = new RegExp(escapeRegExp(`require("${module.name}/`), "g");
+        const regExp2 = new RegExp(escapeRegExp(`require("${moduleName}/`), "g");
         let replaceText2 = `require("` + diff;
 
-        const regExp3 = new RegExp(escapeRegExp(`require('${module.name}')`), "g");
+        const regExp3 = new RegExp(escapeRegExp(`require('${moduleName}')`), "g");
         const replaceText3 = `require('` + diff + `')`;
 
-        const regExp4 = new RegExp(escapeRegExp(`require('${module.name}/`), "g");
+        const regExp4 = new RegExp(escapeRegExp(`require('${moduleName}/`), "g");
         let replaceText4 = `require('` + diff;
 
         if (diff !== "./") {

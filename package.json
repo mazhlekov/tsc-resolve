@@ -1,12 +1,12 @@
 {
-    "name": "tsc-resolve",
-    "version": "1.0.6",
+    "name": "tsc-wildcard-resolve",
+    "version": "1.0.0",
     "description": "A tool for resolving typescript modules defined in tsconfig.json",
-    "homepage": "https://github.com/mazhlekov/tsc-resolve",
-    "author": "Dimitar Mazhlekov <d.mazhlekov@gmail.com>",
+    "homepage": "https://github.com/valendres/tsc-resolve",
+    "author": "Peter Weller <contact@peterweller.com.au>",
     "license": "MIT",
     "keywords": [
-        "tsc-resolve",
+        "tsc-wildcard-resolve",
         "typescript",
         "tsconfig",
         "nodejs",
@@ -14,10 +14,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/mazhlekov/tsc-resolve"
+        "url": "https://github.com/valendres/tsc-resolve"
     },
     "bugs": {
-        "url": "https://github.com/mazhlekov/tsc-resolve/issues"
+        "url": "https://github.com/valendres/tsc-resolve/issues"
     },
     "main": "build/index.js",
     "typings": "./build/index.d.ts",
@@ -36,7 +36,7 @@
     },
     "devDependencies": {
         "@types/bluebird-global": "3.5.2",
-        "@types/node": "7.0.27",
+        "@types/node": "^10.12.18",
         "bithound": "^1.7.0",
         "shx": "0.2.2",
         "tslint": "5.4.2",
@@ -44,7 +44,6 @@
     },
     "scripts": {
         "build": "tslint -p tsconfig.json && shx rm -rf build && tsc",
-        "bithound": "bithound check git@github.com:mazhlekov/tsc-resolve.git",
         "prepublishOnly": "npm install && npm run build"
     }
 }
