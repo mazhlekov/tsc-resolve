@@ -4,15 +4,15 @@ import * as path from "path";
 global.Promise = Bluebird; // only for CLI usage
 const yargs = require("yargs");
 
-import { resolve } from "./tsc-resolve";
+import { resolve } from "./tsc-wildcard-resolve";
 
 const USAGE = `
 USAGE:
-    tsc-resolve
-    tsc-resolve -p tsconfig.prod.json
-    tsc-resolve -p ./conf/tsconfig.dev.json
-    tsc-resolve -p ./conf/
-    tsc-resolve -p ../
+    tsc-wildcard-resolve
+    tsc-wildcard-resolve -p tsconfig.prod.json
+    tsc-wildcard-resolve -p ./conf/tsconfig.dev.json
+    tsc-wildcard-resolve -p ./conf/
+    tsc-wildcard-resolve -p ../
 `;
 
 const argv = yargs
@@ -26,7 +26,7 @@ const argv = yargs
         normalize: true,
     })
     .help()
-    .epilogue("GitHub repository at https://github.com/mazhlekov/tsc-resolve")
+    .epilogue("GitHub repository at https://github.com/valendres/tsc-resolve")
     .argv;
 
 const tsConfigPath: string = path.resolve(process.cwd(), argv.p);

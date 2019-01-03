@@ -1,99 +1,41 @@
-# tsc-resolve 
-## A tool for resolving typescript modules defined in tsconfig.json 
-
-<p>
-  <a href="https://travis-ci.org/mazhlekov/tsc-resolve">
-    <img
-      alt="build:?"
-      src="https://img.shields.io/travis/mazhlekov/tsc-resolve/master.svg?style=flat-square"
-    />
-  </a>
-  <a href="https://www.npmjs.com/package/tsc-resolve">
-    <img
-      alt="NPM package version"
-      src="https://img.shields.io/badge/node-%3E=4.2.0-blue.svg?style=flat-square"
-    />
-  </a>
-  <a href="https://snyk.io/test/github/mazhlekov/tsc-resolve">
-    <img src="https://snyk.io/test/github/mazhlekov/tsc-resolve/badge.svg?style=flat-square" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/mazhlekov/tsc-resolve" style="max-width:100%;">
-  </a>
-  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve/master/dependencies/npm">
-    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/dependencies.svg" alt="bitHound Dependencies">
-  </a>
-  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve/master/dependencies/npm">
-    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/devDependencies.svg" alt="bitHound Dev Dependencies">
-  </a>
-  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve">
-    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/code.svg" alt="bitHound Code">
-  </a>
-  <a href="https://www.bithound.io/github/mazhlekov/tsc-resolve">
-    <img src="https://www.bithound.io/github/mazhlekov/tsc-resolve/badges/score.svg" alt="bitHound Overall Score">
-  </a>
-  <br/>
-  <a href="https://github.com/mazhlekov/tsc-resolve/blob/master/LICENSE">
-    <img
-      alt="license:mit"
-      src="https://img.shields.io/github/license/mazhlekov/tsc-resolve.svg?style=flat-square"
-    />
-  </a>
-  <a href="https://npmjs.com/package/tsc-resolve">
-      <img src="https://img.shields.io/npm/dm/tsc-resolve.svg?style=flat-square">
-  </a>
-  <br/>
-  <a href="https://tsc-resolve.slack.com/">
-    <img
-      alt="Join the Slack chat"
-      src="https://img.shields.io/badge/slack-join%20chat-E2206F.svg?style=flat-square"
-    />
-  </a>
-  <a href="https://gitter.im/tsc-resolve">
-    <img
-      alt="Join the Gitter chat"
-      src="https://img.shields.io/badge/gitter-join%20chat-D0104D.svg?style=flat-square"
-    />
-  </a>
-</p>
-
-## Why tsc-resolve?
-<a href="https://asciinema.org/a/123305" target="_blank">
-    <img src="https://github.com/mazhlekov/tsc-resolve/raw/master/img/tsc-resolve.gif" />
-</a>
+# tsc-wildcard-resolve
+## A tool for resolving typescript modules defined in tsconfig.json
 
 ## Installation
 ```bash
 # Local package
-$ npm i tsc-resolve --save-dev
+$ npm i tsc-wildcard-resolve --save-dev
 
 # Global CLI
-$ npm i -g tsc-resolve 
+$ npm i -g tsc-wildcard-resolve
 ```
 
 ## Usage
 ### NPM task
 ```bash
-$ npm i tsc-resolve --save-dev
+$ npm i tsc-wildcard-resolve --save-dev
 
 "scripts": {
     "compile": "tsc",
-    "build": "compile && tsc-resolve"
+    "build": "compile && tsc-wildcard-resolve"
 }
 
 $ npm run build
 ```
 ### CLI
 ```bash
-$ npm i -g tsc-resolve
+$ npm i -g tsc-wildcard-resolve
 
-$ tsc-resolve
-$ tsc-resolve -p tsconfig.prod.json
-$ tsc-resolve -p ./conf/tsconfig.dev.json
-$ tsc-resolve -p ./conf/
-$ tsc-resolve -p ../
+$ tsc-wildcard-resolve
+$ tsc-wildcard-resolve -p tsconfig.prod.json
+$ tsc-wildcard-resolve -p ./conf/tsconfig.dev.json
+$ tsc-wildcard-resolve -p ./conf/
+$ tsc-wildcard-resolve -p ../
 ```
-    
+
 ### TypeScript
 ```typescript
-import { tscResolve } from "tsc-resolve"
+import { tscResolve } from "tsc-wildcard-resolve"
 import * as path from "path"
 
 // Simple ./tsconfig.json
@@ -118,7 +60,7 @@ await tscResolve(configPath);
 
 ### JavaScript
 ```javascript
-const tscResolver = require("tsc-resolve");
+const tscResolver = require("tsc-wildcard-resolve");
 const path = require("path");
 
 // Simple ./tsconfig.json

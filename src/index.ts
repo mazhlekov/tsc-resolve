@@ -1,1 +1,1 @@
-export { resolve } from "./tsc-resolve";
+export { resolve } from "./tsc-wildcard-resolve";
