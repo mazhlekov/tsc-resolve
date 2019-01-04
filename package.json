@@ -1,6 +1,6 @@
 {
     "name": "tsc-wildcard-resolve",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A tool for resolving typescript modules defined in tsconfig.json",
     "homepage": "https://github.com/valendres/tsc-resolve",
     "author": "Peter Weller <contact@peterweller.com.au>",
