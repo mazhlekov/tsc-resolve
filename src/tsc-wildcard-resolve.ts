@@ -32,15 +32,45 @@ function getFileReplaceTask(outDir: string, filePath: string, modules: ITypescri
         const regExp4 = new RegExp(escapeRegExp(`require('${moduleName}/`), "g");
         let replaceText4 = `require('` + diff;
 
+        const regExp5 = new RegExp(
+            escapeRegExp(`from '${moduleName}'`),
+            "g",
+        );
+        const replaceText5 = `from '` + diff + `'`;
+
+        const regExp6 = new RegExp(
+            escapeRegExp(`from '${moduleName}/`),
+            "g",
+        );
+        let replaceText6 = `from '` + diff;
+
+        const regExp7 = new RegExp(
+            escapeRegExp(`from "${moduleName}"`),
+            "g",
+        );
+        const replaceText7 = `from "` + diff + `"`;
+
+        const regExp8 = new RegExp(
+            escapeRegExp(`from "${moduleName}/`),
+            "g",
+        );
+        let replaceText8 = `from "` + diff;
+
         if (diff !== "./") {
             replaceText2 += "/";
             replaceText4 += "/";
+            replaceText6 += "/";
+            replaceText8 += "/";
         }
 
         replaces.push({ regExp: regExp1, text: replaceText1 });
         replaces.push({ regExp: regExp2, text: replaceText2 });
         replaces.push({ regExp: regExp3, text: replaceText3 });
         replaces.push({ regExp: regExp4, text: replaceText4 });
+        replaces.push({ regExp: regExp5, text: replaceText5 });
+        replaces.push({ regExp: regExp6, text: replaceText6 });
+        replaces.push({ regExp: regExp7, text: replaceText7 });
+        replaces.push({ regExp: regExp8, text: replaceText8 });
     }
 
     return replaceInFile(filePath, replaces);

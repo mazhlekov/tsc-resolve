@@ -24,7 +24,7 @@ export function getJSFiles(dir: string, files: string[] = []) {
             getJSFiles(fileName, files);
         } else {
             const fileExt = fileName.split(".").pop();
-            if (fileExt === "js") {
+            if (fileExt === "js" || fileExt === "ts") {
                 files.push(fileName);
             }
         }
