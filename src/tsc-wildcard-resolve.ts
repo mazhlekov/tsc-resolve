@@ -2,58 +2,76 @@ import * as path from "path";
 const tsconfig = require("tsconfig");
 
 import {
-    CONFIG_FILENAME, convertToUnixPath, endsWith, escapeRegExp, getJSFiles,
-    IFileReplace, ITypescriptModule, replaceInFile, rtrim, validateTsConfig
+    CONFIG_FILENAME,
+    convertToUnixPath,
+    endsWith,
+    escapeRegExp,
+    getJSFiles,
+    IFileReplace,
+    ITypescriptModule,
+    replaceInFile,
+    rtrim,
+    validateTsConfig
 } from "./utils";
 
-function getFileReplaceTask(outDir: string, filePath: string, modules: ITypescriptModule[]) {
+function getFileReplaceTask(
+    outDir: string,
+    filePath: string,
+    modules: ITypescriptModule[]
+) {
     const replaces: IFileReplace[] = [];
 
     for (const module of modules) {
-        const moduleDir = path.resolve(outDir, module.path);
+        const moduleDir = path
+            .resolve(outDir, module.path)
+            .replace("out\\dist\\src", "out\\dist\\")
+            .replace("out/dist/src/", "out/dist/");
         const moduleName = module.name.replace(/\/\*$/, "");
 
-        let diff = path.relative(path.resolve(moduleDir, path.dirname(filePath)), moduleDir);
+        let diff = path.relative(
+            path.resolve(moduleDir, path.dirname(filePath)),
+            moduleDir
+        );
         diff = convertToUnixPath(diff);
 
         if (!(diff.lastIndexOf(".", 0) === 0)) {
             diff = "./" + diff;
         }
 
-        const regExp1 = new RegExp(escapeRegExp(`require("${moduleName}")`), "g");
+        const regExp1 = new RegExp(
+            escapeRegExp(`require("${moduleName}")`),
+            "g"
+        );
         const replaceText1 = `require("` + diff + `")`;
 
-        const regExp2 = new RegExp(escapeRegExp(`require("${moduleName}/`), "g");
+        const regExp2 = new RegExp(
+            escapeRegExp(`require("${moduleName}/`),
+            "g"
+        );
         let replaceText2 = `require("` + diff;
 
-        const regExp3 = new RegExp(escapeRegExp(`require('${moduleName}')`), "g");
+        const regExp3 = new RegExp(
+            escapeRegExp(`require('${moduleName}')`),
+            "g"
+        );
         const replaceText3 = `require('` + diff + `')`;
 
-        const regExp4 = new RegExp(escapeRegExp(`require('${moduleName}/`), "g");
+        const regExp4 = new RegExp(
+            escapeRegExp(`require('${moduleName}/`),
+            "g"
+        );
         let replaceText4 = `require('` + diff;
 
-        const regExp5 = new RegExp(
-            escapeRegExp(`from '${moduleName}'`),
-            "g",
-        );
+        const regExp5 = new RegExp(escapeRegExp(`from '${moduleName}'`), "g");
         const replaceText5 = `from '` + diff + `'`;
 
-        const regExp6 = new RegExp(
-            escapeRegExp(`from '${moduleName}/`),
-            "g",
-        );
+        const regExp6 = new RegExp(escapeRegExp(`from '${moduleName}/`), "g");
         let replaceText6 = `from '` + diff;
 
-        const regExp7 = new RegExp(
-            escapeRegExp(`from "${moduleName}"`),
-            "g",
-        );
+        const regExp7 = new RegExp(escapeRegExp(`from "${moduleName}"`), "g");
         const replaceText7 = `from "` + diff + `"`;
 
-        const regExp8 = new RegExp(
-            escapeRegExp(`from "${moduleName}/`),
-            "g",
-        );
+        const regExp8 = new RegExp(escapeRegExp(`from "${moduleName}/`), "g");
         let replaceText8 = `from "` + diff;
 
         if (diff !== "./") {
@@ -84,7 +102,10 @@ export async function resolve(tsConfigFilePath: string) {
     const config: any = await tsconfig.readFile(tsConfigFilePath);
     validateTsConfig(config);
 
-    const outDir = path.resolve(path.dirname(tsConfigFilePath), config.compilerOptions.outDir);
+    const outDir = path.resolve(
+        path.dirname(tsConfigFilePath),
+        config.compilerOptions.outDir
+    );
 
     const jsFiles: string[] = getJSFiles(outDir);
     if (!jsFiles.length) {
@@ -95,7 +116,10 @@ export async function resolve(tsConfigFilePath: string) {
         jsFiles.map((filePath: string) => {
             const tsModules: ITypescriptModule[] = [];
             for (const moduleName of modules) {
-                const modulePath = rtrim(config.compilerOptions.paths[moduleName][0], "*"); // Remove trailing *s
+                const modulePath = rtrim(
+                    config.compilerOptions.paths[moduleName][0],
+                    "*"
+                ); // Remove trailing *s
                 tsModules.push({ name: moduleName, path: modulePath });
             }
             return getFileReplaceTask(outDir, filePath, tsModules);
